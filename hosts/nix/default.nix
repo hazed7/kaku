@@ -64,7 +64,7 @@
   services = {
     # for SSD/NVME
     fstrim.enable = true;
-s
+
     scx = {
       enable = true;
       scheduler = "scx_rusty";
