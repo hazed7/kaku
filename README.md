@@ -35,8 +35,7 @@ mkfs.xfs -L NIXOS /dev/nvme0n1p2
 
 ```bash
 mount /dev/disk/by-label/NIXOS /mnt
-mkdir -p /mnt/boot
-mount /dev/disk/by-label/EFI /mnt/boot
+mount --mkdir /dev/disk/by-label/EFI /mnt/boot
 ```
 
 - Enable nixFlakes
