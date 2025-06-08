@@ -15,7 +15,7 @@
         devShells = {
           default = pkgs.mkShell {
             packages = [pkgs.alejandra pkgs.git config.packages.repl];
-            name = "nixland";
+            name = "kaku";
             DIRENV_LOG_FORMAT = "";
           };
         };
@@ -58,8 +58,6 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    lanzaboote.url = "github:nix-community/lanzaboote";
 
     niri = {
       url = "github:sodiboo/niri-flake";

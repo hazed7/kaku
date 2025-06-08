@@ -18,7 +18,6 @@
     ripgrep
     killall
     koji
-    jq
 
     tuicam
     fum
@@ -29,11 +28,7 @@
     ssh.enable = true;
     dircolors = {
       enable = true;
-      enableFishIntegration = true;
-    };
-    autojump = {
-      enable = true;
-      enableFishIntegration = true;
+      enableNushellIntegration = true;
     };
   };
 }

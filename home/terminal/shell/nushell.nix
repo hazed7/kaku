@@ -1,13 +1,15 @@
 {pkgs, ...}: {
+  home.packages = with pkgs; [
+    nu_plugin_skim
+  ];
+
   programs = {
     carapace.enable = true;
-    carapace.enableFishIntegration = true;
 
     nushell = {
       enable = true;
 
       plugins = with pkgs.nushellPlugins; [
-        # skim
         query
         gstat
         polars
@@ -66,6 +68,9 @@
       in ''
         $env.config = ${conf};
 
+        # Register nu_plugin_skim
+        plugin add ${pkgs.nu_plugin_skim}/bin/nu_plugin_skim
+
         ${completions ["git" "nix" "man" "rg"]}
 
         # use ${pkgs.nu_scripts}/share/nu_scripts/modules/background_task/task.nu
@@ -81,18 +86,18 @@
 
 
         def fcd [] {
-          let dir = (fd --type d | sk | str trim)
+          let dir = (fd --type d | lines | sk | str trim)
           if ($dir != "") {
             cd $dir
           }
         }
 
         def installed [] {
-          nix-store --query --requisites /run/current-system/ | parse --regex '.*?-(.*)' | get capture0 | sk
+          nix-store --query --requisites /run/current-system/ | lines | parse --regex '.*?-(.*)' | get capture0 | sk
         }
 
         def installedall [] {
-          nix-store --query --requisites /run/current-system/ | sk | wl-copy
+          nix-store --query --requisites /run/current-system/ | lines | sk | wl-copy
         }
 
         def search [term: string] {
@@ -142,10 +147,9 @@
         cleanram = "sudo sh -c 'sync; echo 3 > /proc/sys/vm/drop_caches'";
         trimall = "sudo fstrim -va";
         temp = "cd /tmp/";
-        zed = "zeditor";
 
-        test-build = "sudo nixos-rebuild test --flake .#aesthetic";
-        switch-build = "sudo nixos-rebuild switch --flake .#aesthetic";
+        test-build = "sudo nixos-rebuild test --flake .#nix";
+        switch-build = "sudo nixos-rebuild switch --flake .#nix";
 
         # git
         g = "git";
@@ -160,7 +164,7 @@
         # gitrm = "git ls-files --deleted -z | xargs -0 git rm";
 
         # cat = "bat --theme=base16 --number --color=always --paging=never --tabs=2 --wrap=never";
-        fcd = "cd (fd --type d | sk | str trim)";
+        fcd = "cd (fd --type d | lines | sk | str trim)";
         grep = "rg";
         l = "eza -lF --time-style=long-iso --icons";
         # la = "eza -lah --tree";

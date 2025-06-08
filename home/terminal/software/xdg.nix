@@ -40,7 +40,6 @@
       "application/pdf" = ["papers"];
       "text/html" = browser;
       "text/plain" = ["org.gnome.TextEditor"];
-      "x-scheme-handler/chrome" = ["chromium-browser"];
     }
     // image
     // video

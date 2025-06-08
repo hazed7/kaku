@@ -15,7 +15,6 @@
       "amd_pstate=active"
       "amd_iommu"
       "mitigations=off"
-      "ideapad_laptop.allow_v4_dytc=Y"
       "nvme_core.default_ps_max_latency_us=0"
     ];
     kernel.sysctl = {
@@ -31,9 +30,7 @@
     '';
   };
 
-  networking.hostName = "aesthetic";
-
-  security.tpm2.enable = true;
+  networking.hostName = "nix";
 
   services = {
     # for SSD/NVME

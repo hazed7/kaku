@@ -4,7 +4,7 @@
   };
   programs.starship = {
     enable = true;
-    enableFishIntegration = true;
+    enableNushellIntegration = true;
     settings = {
       format = "$directory$all$shell$line_break$env_var$username$sudo$character";
       right_format = "$jobs$status$cmd_duration";

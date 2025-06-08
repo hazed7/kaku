@@ -5,6 +5,7 @@ let
 
     ./hardware/graphics.nix
     ./hardware/fwupd.nix
+    ./hardware/bluetooth.nix
 
     ./network/default.nix
     ./network/avahi.nix
@@ -16,14 +17,6 @@ let
     ./services/pipewire.nix
   ];
 
-  laptop =
-    desktop
-    ++ [
-      ./hardware/bluetooth.nix
-
-      ./services/backlight.nix
-      ./services/power.nix
-    ];
 in {
-  inherit desktop laptop;
+  inherit desktop;
 }

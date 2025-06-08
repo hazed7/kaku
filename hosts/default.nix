@@ -10,26 +10,24 @@
     mod = "${self}/system";
 
     # get the basic config to build on top of
-    inherit (import "${self}/system") desktop laptop;
+    inherit (import "${self}/system") desktop;
 
     # get these into the module system
     specialArgs = {inherit inputs self;};
   in {
-    aesthetic = nixosSystem {
+    nix = nixosSystem {
       inherit specialArgs;
       modules =
         desktop
-        ++ laptop
         ++ [
-          ./aesthetic
+          ./nix
           "${mod}/programs/gamemode.nix"
           "${mod}/services/gnome-services.nix"
           "${mod}/services/location.nix"
-          "${mod}/core/lanzaboote.nix"
           {
             home-manager = {
-              users.linuxmobile.imports =
-                homeImports."linuxmobile@aesthetic";
+              users.hazed.imports =
+                homeImports."hazed@nix";
               extraSpecialArgs = specialArgs;
             };
           }

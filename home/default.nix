@@ -4,8 +4,8 @@
     inputs.nix-index-db.hmModules.nix-index
   ];
   home = {
-    username = "linuxmobile";
-    homeDirectory = "/home/linuxmobile";
+    username = "hazed";
+    homeDirectory = "/home/hazed";
     stateVersion = "24.05";
   };
 
@@ -21,6 +21,6 @@
 
   programs.nix-index = {
     enable = true;
-    enableFishIntegration = true;
+	enableNushellIntegration = true;
   };
 }
