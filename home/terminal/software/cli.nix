@@ -28,7 +28,6 @@
     ssh.enable = true;
     dircolors = {
       enable = true;
-      enableNushellIntegration = true;
     };
   };
 }
