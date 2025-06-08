@@ -53,7 +53,7 @@ git clone --depth 1 https://github.com/hazed7/kaku /mnt/etc/nixos
 - Generate Nix Hardware Settings:
 
 ```bash
-sudo nixos-generate-config --dir /mnt/etc/nixos/hosts/nix --force
+nixos-generate-config --dir /mnt/etc/nixos/hosts/nix --force
 
 # Remove configuration.nix
 rm -rf /mnt/etc/nixos/hosts/nix/configuration.nix
@@ -70,6 +70,8 @@ cd /mnt/etc/nixos
 
 # Install
 nixos-install --flake .#nix
+
+nixos-enter --root /mnt -c 'passwd hazed'
 ```
 
 - Reboot
