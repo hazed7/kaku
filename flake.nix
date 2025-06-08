@@ -1,5 +1,5 @@
 {
-  description = "LinuDev Configuration NixOs.";
+  description = "Hazed7 Configuration NixOs.";
 
   outputs = inputs:
     inputs.flake-parts.lib.mkFlake {inherit inputs;} {
@@ -15,7 +15,7 @@
         devShells = {
           default = pkgs.mkShell {
             packages = [pkgs.alejandra pkgs.git config.packages.repl];
-            name = "kaku";
+            name = "hazed";
             DIRENV_LOG_FORMAT = "";
           };
         };
