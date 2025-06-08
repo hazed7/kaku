@@ -21,6 +21,5 @@
 
   programs.nix-index = {
     enable = true;
-	enableNushellIntegration = true;
   };
 }
