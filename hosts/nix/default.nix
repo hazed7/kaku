@@ -9,7 +9,7 @@
   boot = {
     # load modules on boot
     kernelModules = ["amdgpu" "v4l2loopback" "i2c-dev"];
-    kernelPackages = lib.mkForce pkgs.linuxPackages_cachyos;
+    kernelPackages = lib.mkForce pkgs.linuxPackages_cachyos-hardened;
     extraModulePackages = with config.boot.kernelPackages; [v4l2loopback];
     kernelParams = [
       "amd_pstate=active"
