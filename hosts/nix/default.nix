@@ -44,7 +44,7 @@
         configurationLimit = 10;
       };
       efi.canTouchEfiVariables = true;
-      timeout = 5; # Slightly longer for debugging
+      timeout = lib.mkForce 5;
     };
 
     initrd.systemd.enable = true;
