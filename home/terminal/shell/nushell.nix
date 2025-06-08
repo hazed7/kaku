@@ -1,8 +1,4 @@
 {pkgs, ...}: {
-  home.packages = with pkgs; [
-    nu_plugin_skim
-  ];
-
   programs = {
     carapace.enable = true;
 
@@ -13,6 +9,7 @@
         query
         gstat
         polars
+        skim
       ];
 
       extraConfig = let
@@ -69,7 +66,7 @@
         $env.config = ${conf};
 
         # Register nu_plugin_skim
-        plugin add ${pkgs.nu_plugin_skim}/bin/nu_plugin_skim
+        plugin add ${pkgs.nushellPlugins.skim}/bin/nu_plugin_skim
 
         ${completions ["git" "nix" "man" "rg"]}
 
