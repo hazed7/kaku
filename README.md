@@ -66,7 +66,7 @@ mkdir -p /mnt/tmp
 export TMPDIR=/mnt/tmp
 
 # Move to folder
-cd mnt/etc/nixos/
+cd /mnt/etc/nixos
 
 # Install
 nixos-install --flake .#nix
