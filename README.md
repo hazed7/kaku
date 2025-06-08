@@ -47,7 +47,7 @@ nix-shell -p nixVersions.stable git
 - Clone my Dotfiles
 
 ```bash
-git clone --depth 1 https://github.com/hazed/kaku /mnt/etc/nixos
+git clone --depth 1 https://github.com/hazed7/kaku /mnt/etc/nixos
 ```
 
 - Generate Nix Hardware Settings:
