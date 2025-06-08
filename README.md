@@ -5,7 +5,7 @@
 ## 🌼 <samp>INSTALLATION (NixOS)</samp>
 
 > Request:
-> [NixOs](https://channels.nixos.org/nixos-24.05/latest-nixos-minimal-x86_64-linux.iso)
+> [NixOs](https://channels.nixos.org/nixos-25.05/latest-nixos-minimal-x86_64-linux.iso)
 
 - Download ISO.
 
