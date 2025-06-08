@@ -14,11 +14,12 @@
     extraModulePackages = with config.boot.kernelPackages; [v4l2loopback];
 
     kernelParams = [
-      # From system/core/boot.nix
+      # Silent boot parameters
       "quiet"
-      "systemd.show_status=auto"
-      "rd.udev.log_level=3"
-      "plymouth.use-simpledrm"
+      "loglevel=3"
+      "systemd.show_status=no"
+      "rd.systemd.show_status=no"
+      "rd.udev.log-priority=2"
       # Host-specific AMD optimizations
       "amd_pstate=active"
       "amd_iommu"
@@ -47,12 +48,14 @@
       timeout = lib.mkForce 5;
     };
 
-    initrd.systemd.enable = true;
+    initrd = {
+      systemd.enable = false;
+      availableKernelModules = [ "nvme" "xhci_pci" "ehci_pci" "ahci" "usb_storage" ];
+      supportedFilesystems = [ "xfs" "vfat" ];
+      kernelModules = [ "xfs" ];
+    };
 
-    # Enable plymouth
-    plymouth.enable = true;
-
-    # Set console log level
+    plymouth.enable = false;
     consoleLogLevel = 3;
 
     # Clean tmp on boot

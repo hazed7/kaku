@@ -14,12 +14,14 @@
     # use latest kernel
     kernelPackages = pkgs.linuxPackages_latest;
 
+    # Silent boot
     consoleLogLevel = 3;
     kernelParams = [
       "quiet"
-      "systemd.show_status=auto"
-      "rd.udev.log_level=3"
-      "plymouth.use-simpledrm"
+      "loglevel=2"
+      "systemd.show_status=no"
+      "rd.systemd.show_status=no"
+      "rd.udev.log-priority=2"
     ];
 
     loader = {
@@ -32,7 +34,8 @@
       timeout = 3;
     };
 
-    plymouth.enable = true;
+    # Disable plymouth for clean boot
+    plymouth.enable = false;
 
     tmp.cleanOnBoot = true;
   };
